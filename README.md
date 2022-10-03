@@ -1,6 +1,9 @@
 # tarea_2
 Ejecutar la tarea:
-Al ingresar al repositorio en Github, haga click en el botón verde que dice "Code", y copie el link terminado en .git. Luego ingrese a la página de replit.com y abra su cuenta, si no tiene, regístrese. Seleccione la opción de "Create a Repl", y "Import from GitHub", pegue el link copiado anteriormente en el espacio, y nuevamente click en "Import from GitHub". Finalmente haga click en el botón "RUN", y podrá ingresar las opciones del menú en la consola.
+Al ingresar al repositorio en Github, haga click en el botón verde que dice "Code", y descargue como zip.
+Al descargárlo, extraigalo, y abra Visual Studio Code o su entorno de desarrollo favorito. 
+En la consola para compilar el código escriba: gcc -g main.c list.c hashmap.c -o tarea_2
+Luego para ejecutar: ./tarea_2
 
 Observaciones:
 Todos los datos son de tipo string, menos la capacidad. Diferenciar correctamente al ingresar mayúsculas o minúsculas.
