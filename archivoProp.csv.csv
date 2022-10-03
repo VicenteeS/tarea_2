@@ -1,4 +1,4 @@
-Id,Ciudad,Dirección,Tipo,Capacidad,Valor
+Id,Ciudad,Direccion,Tipo,Capacidad,Valor
 1,Vina del Mar,3 norte 231,Departamento,2,440000
 2,Quilpue,Paradero 11,Casa,3,390000
 3,Valparaiso,Av Argentina 324,Departamento,2,300000
@@ -19,4 +19,3 @@ Id,Ciudad,Dirección,Tipo,Capacidad,Valor
 18,Quilpue,Serrano 1138,Loft,2,200000
 19,Valparaiso,Cochrane 710,Departamento,4,450000
 20,Vina del Mar,5 norte 1246,Departamento,3,480000
-a,a,a,a,1,a
