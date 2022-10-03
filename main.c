@@ -1,3 +1,4 @@
+/*Incluimos las librerias estandar de C*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,11 +7,12 @@
 #include "hashmap.h"
 #include "list.h"
 
+//Definimos las funciones que utilizaremos.
 int de_Void_a_Int(void *); 
 char* quitarSalto(char* linea);
 void *get_csv_field (char *, int ); 
 
-
+//Definimos la estructrura Persona.
 typedef struct{
   char id[30];
   char ciudad[30];
@@ -22,12 +24,12 @@ typedef struct{
 
 int main(void) 
 {
+  /*Definimos algunas variables, mapas, listas que utilizaremos en el programa*/
   int opcion;
   char id[30], ciudad[30],direccion[30],tipo[30],valor[30];
   int capacidad;
   int capacidadMinima;
   int num;
-  
   
   Propiedad *p;
   FILE* file;
@@ -90,13 +92,12 @@ int main(void)
         while(fgets(linea, 1023, file) != NULL)
         { // Se lee la linea
           
-          //printf("ola");
-          
           for(v=0;v<6;v++)
           {
             auxi = get_csv_field(linea, v); // Se obtiene el nombre
-            switch (v)
+            switch (v)//Segun el espacio entre comas de la linea, los datos que pertenecen al tipo Persona.
             {
+              //Hay un contador para que, cuando se lean los 6 espacios del archivo, se agreguen a los mapas utilizados
               case 0: 
                 strcpy(id, auxi);
                 contador++;
@@ -149,7 +150,6 @@ int main(void)
                 //agregamos en la lista Propiedades cada id de las propiedades.
                 listaPropiedades[contPropiedades] = p->id;
                 contPropiedades++;
-                //printf("2ola");
                 //agregamos la ciudad al mapaCiudad. /key = ciudad, value = listaCiudades (contiene los id de cada propiedad de la ciudad)
                 if(searchMap(mapaCiudad, p->ciudad) == NULL)
                 {
@@ -165,6 +165,7 @@ int main(void)
                   pushFront(copiaCiudades, p->id);    
                   auxCiudad->value = copiaCiudades;
                 }
+                //al igual que en el if anterior, añadimos el tipo de propiedad al mapa tipo.
                 if(searchMap(mapaTipo, p->tipo) == NULL)
                 {
                   tipos = createList();
@@ -185,7 +186,7 @@ int main(void)
         printf("~Archivo importado correctamente~\n");
       break;
       case 2:
-        
+        //Ingresamos por la consola los datos solicitados, que pertenecen al tipo de dato Propiedad
         p = (Propiedad *) malloc (sizeof(Propiedad));
         
         printf("Ingrese id: ");
@@ -261,7 +262,8 @@ int main(void)
         }
       break;
       case 3:
-        //recorremos la lista de Propiedades en la posicion i, encontrándonos con las id de cada propiedad agregada, y buscandola en el mapaID para poder mostrarla
+        //recorremos la lista de Propiedades en la posicion i, encontrándonos con las id
+        // de cada propiedad agregada, y buscandola en el mapaID para poder mostrarla
         //printf("contador: %i", contPropiedades);
         for(int i=0; i<contPropiedades; i++)
         {
@@ -278,7 +280,8 @@ int main(void)
         fgets(ciudad, 30, stdin);
         strcpy(ciudad, quitarSalto(ciudad));
         
-        //buscamos la key ingresada en el mapaCiudad, copiamos la lista almacenada en el valor del mapa, y la recorremos hasta que sea nula, para buscar los id (data de la lista) en el mapa ID
+        //buscamos la key ingresada en el mapaCiudad, copiamos la lista almacenada en
+        // el valor del mapa, y la recorremos hasta que sea nula, para buscar los id (data de la lista) en el mapa ID
         auxCiudad = searchMap(mapaCiudad, ciudad);
         if(auxCiudad != NULL)
         {
@@ -300,6 +303,8 @@ int main(void)
         }
       break;
       case 5:
+        //Al igual que el caso anterior, buscamos en el mapa el dato tipo ingresado
+        // luego recorremos la lista almacenada en la tabla hash para mostrar los datos asociados al id
         printf("Ingrese el tipo: ");
         fgets(tipo, 30, stdin);
         strcpy(tipo, quitarSalto(tipo));
@@ -325,7 +330,9 @@ int main(void)
         }
       break;
       case 6:
-
+        //Se ingresa la capacidad mínima buscada en una propiedad, 
+        //luego recorremos la lista de propiedades y mostramos si verificamos
+        // si la capacidad de la propiedad es mayor o igual al dato ingresado 
         printf("Ingrese capacidad minima: ");
         scanf("%i", &capacidadMinima);
         
@@ -348,6 +355,8 @@ int main(void)
         
       break;
       case 7:
+      //Se ingresa el id de la propiedad favorita, luego la busca en el mapaID.
+      //Si la propiedad existe, se guarda el id en un arreglo de favoritos
         printf("Ingrese id: ");
         fgets(id, 30, stdin);
         strcpy(id, quitarSalto(id));
@@ -365,6 +374,7 @@ int main(void)
       break;
     
       case 8:
+      //Recorremos el arreglo de favoritos y mostramos las propiedades asociadas al id
         if(contFavoritos == 0)
         {
           printf("No hay propiedades favoritas\n");
@@ -384,7 +394,6 @@ int main(void)
         }
       break;
       case 9:
-        
         remove("Propiedades.csv");
         
         
@@ -399,7 +408,7 @@ int main(void)
           aux = searchMap(mapaID, listaPropiedades[i]);
           p = aux->value;
           if(aux != NULL)
-          {  
+          {  //Imprimimos en el archivo cada dato separado por ","
             fprintf(file, "%s,", p->id);
             fprintf(file, "%s,", p->ciudad);
             fprintf(file, "%s,", p->direccion);
@@ -419,7 +428,7 @@ int main(void)
   return 0;
 }
 
-    
+//Funcion utilizada para quitar el salto de línea agregado en el fgets.
 char* quitarSalto(char* linea)
 {
   if ((strlen(linea) > 0) && (linea[strlen(linea) - 1] == '\n'))

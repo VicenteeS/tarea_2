@@ -1,22 +1,25 @@
-Ingrese a este link de replit:  para ejecutar la tarea con el botón run. En caso de querer verla en visual studio, cargue la carpeta que contenga los archivos, y escriba en la consola "    ", y luego escriba "   "
+Ejecutar la tarea:
+-
+Al ingresar al repositorio en Github, haga click en el botón verde que dice "Code", y copie el link terminado en .git. Luego ingrese a la página de replit.com y abra su cuenta, si no tiene, regístrese. Seleccione la opción de "Create a Repl", y  "Import from GitHub", pegue el link copiado anteriormente en el espacio, y nuevamente click en "Import from GitHub". Finalmente haga click en el botón "RUN", y podrá ingresar las opciones del menú en la consola.
 
 Observaciones:
 -
+Todos los datos son de tipo string, menos la capacidad.
+Diferenciar correctamente al ingresar mayúsculas o minúsculas.
 
 Opciones que funcionan correctamente:
-
-
+-
+Todas las opciones realizan correctamente su trabajo.
 
 Las opciones que no funcionan correctamente son las siguientes: 
 -
+No hay opciones que no funcionen.
 
 COEVALUACION: 
 -------
 Vicente Montiel Torres:
 -
-
-
-
+Como grupo, siento que nos esforzamos bastante, lo que más nos costó fue el tiempo para poder reunirnos, pero en general trabajamos harto y todos pusimos la disposición para la tarea. En cuanto a mis compañeros, aportaron y fueron de gran ayuda para poder avanzar en la tarea cuando no coincidíamos de tiempo. De igual manera investigamos mucho juntos o separados para poder realizar la tarea de mejor manera.
 
 
 
